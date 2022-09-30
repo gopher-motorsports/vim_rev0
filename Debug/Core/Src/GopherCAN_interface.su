@@ -1,0 +1,3 @@
+../Core/Src/GopherCAN_interface.c:23:6:init	16	static
+../Core/Src/GopherCAN_interface.c:48:6:can_buffer_handling_loop	8	static
+../Core/Src/GopherCAN_interface.c:64:6:main_loop	40	static
