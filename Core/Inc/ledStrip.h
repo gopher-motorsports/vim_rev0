@@ -185,4 +185,7 @@ void rpmProgressBar(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint
 //void drawColorProgressBar(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint8_t blueStart,
 //											uint8_t redEnd, uint8_t greenEnd, uint8_t blueEnd);
 void drawSmoothRainbow(uint32_t start);
+
+void dottedLine(uint32_t stepSize, uint32_t offset, uint8_t red, uint8_t green, uint8_t blue);
+
 #endif /* INC_LEDSTRIP_H_ */

@@ -15,3 +15,4 @@
 ../Core/Src/ledStrip.c:285:6:drawProgressBar	24	static
 ../Core/Src/ledStrip.c:342:6:rpmProgressBar	48	static
 ../Core/Src/ledStrip.c:377:6:drawSmoothRainbow	24	static
+../Core/Src/ledStrip.c:412:6:dottedLine	32	static

@@ -1,11 +1,8 @@
 Core/Src/GopherCAN_interface.o: ../Core/Src/GopherCAN_interface.c \
  ../Core/Inc/GopherCAN_Interface.h \
- C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN.h \
+ C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h \
  ../Core/Inc/GopherCAN_config.h \
- C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/base_types.h \
- C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_structs.h \
- C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ids.h \
- C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ring_buffer.h \
+ C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -26,6 +23,9 @@ Core/Src/GopherCAN_interface.o: ../Core/Src/GopherCAN_interface.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
@@ -35,14 +35,13 @@ Core/Src/GopherCAN_interface.o: ../Core/Src/GopherCAN_interface.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/ledstrip.h ../Core/Inc/main.h ../Core/Inc/main.h
+ C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h \
+ ../Core/Inc/ledstrip.h ../Core/Inc/main.h
 ../Core/Inc/GopherCAN_Interface.h:
-C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN.h:
+C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h:
 ../Core/Inc/GopherCAN_config.h:
-C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/base_types.h:
-C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_structs.h:
-C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ids.h:
-C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ring_buffer.h:
+C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h:
+../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -63,6 +62,9 @@ C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ring_buffe
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
@@ -72,6 +74,6 @@ C:/Users/Isaiah/STM32CubeIDE/workspace_1.10.1/gophercan-lib/GopherCAN_ring_buffe
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h:
 ../Core/Inc/ledstrip.h:
-../Core/Inc/main.h:
 ../Core/Inc/main.h:

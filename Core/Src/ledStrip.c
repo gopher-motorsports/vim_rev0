@@ -408,3 +408,13 @@ void drawSmoothRainbow(uint32_t start)
 
 }
 
+
+void dottedLine(uint32_t stepSize, uint32_t offset, uint8_t red, uint8_t green, uint8_t blue)
+{
+	clear();
+	offset %= stepSize;
+	for (int ledIndex = offset; ledIndex < NUM_PIXELS; ledIndex+=stepSize)
+	{
+		setPixelColor(ledIndex, red, green, blue);
+	}
+}
