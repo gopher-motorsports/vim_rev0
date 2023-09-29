@@ -8,6 +8,7 @@
 #include "ledStrip.h"
 
 extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim2;
 
 
 // DMA array
@@ -61,6 +62,7 @@ void write()
 		}
 	}
 	HAL_TIM_PWM_Start_DMA(&htim3, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
+	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
 }
 
 void setPixelColor(uint32_t ledNum, uint8_t red, uint8_t green, uint8_t blue)

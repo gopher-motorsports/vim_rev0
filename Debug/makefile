@@ -87,7 +87,7 @@ clean:
 	-@echo ' '
 
 pre-build:
-	cd .. && python config_pre_build.py go4-23e
+	cd .. && python config_pre_build.py go4-23c
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
