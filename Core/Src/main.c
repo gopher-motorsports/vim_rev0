@@ -24,7 +24,6 @@
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
 #include "ledStrip.h"
-#include "GopherCAN_Interface.h"
 
 /* USER CODE END Includes */
 
@@ -117,8 +116,8 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   init(&hcan1);
-//  clear();
-//  setStripBrightness(100);
+  clear();
+  setStripBrightness(100);
 //  uint16_t i = 0;
 //  uint16_t k = 0;
 //  uint32_t rpm = 0;
@@ -172,7 +171,7 @@ int main(void)
 //		  }
 //	  }
 //
-//	  uint32_t time = HAL_GetTick();
+	  uint32_t time = HAL_GetTick();
 //
 //	  if(state == 0)
 //	  {
@@ -194,18 +193,18 @@ int main(void)
 //			  rpm += 5;
 //			  lastUpdate = time;
 //
-//			  if(rpm < 200) {
-//				  rainbow(i);
-//				  i++;
-//				  if(i >= NUM_PIXELS){
-//					  i = 0;
-//				  }
-//			  }
-//			  else
-//			  {
+////			  if(rpm < 200) {
+////				  rainbow(i);
+////				  i++;
+////				  if(i >= NUM_PIXELS){
+////					  i = 0;
+////				  }
+////			  }
+////			  else
+////			  {
 //				  uint32_t percent = map(rpm, 0, 1000, 0, 100);
-//				  drawColorProgressBar(percent, 255, 0, 0, 0, 255, 128);
-//			  }
+//				  rpmProgressBar(percent, 255, 0, 0, 0, 255, 128);
+////			  }
 //			  write();
 //		  }
 //		  if(rpm > 1000)

@@ -16,7 +16,7 @@
 /*================================================================================================
  * CONFIGURATION OPTIONS
  *================================================================================================*/
-#define NUM_PIXELS 147
+#define NUM_PIXELS 300
 #define USING_BRIGHTNESS_FUNCTIONALITY true
 
 /*================================================================================================
@@ -161,7 +161,7 @@ void generateRainbow(uint32_t rainbowArr[NUM_PIXELS][3]);
 void runRainbow(uint32_t rainbowArr[NUM_PIXELS][3]);
 void shiftRainbowUP(uint32_t rainbowArr[NUM_PIXELS][3]);
 void shiftRainbowDOWN(uint32_t rainbowArr[NUM_PIXELS][3]);
-
+void nightRider(uint32_t percent, uint32_t rainbowArr[NUM_PIXELS][3]);
 void rainbow(uint32_t patternStartIndex);
 
 /*

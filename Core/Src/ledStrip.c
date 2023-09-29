@@ -8,6 +8,7 @@
 #include "ledStrip.h"
 
 extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim2;
 
 
 // DMA array
@@ -61,6 +62,7 @@ void write()
 		}
 	}
 	HAL_TIM_PWM_Start_DMA(&htim3, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
+//	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
 }
 
 void setPixelColor(uint32_t ledNum, uint8_t red, uint8_t green, uint8_t blue)
@@ -181,6 +183,21 @@ void runRainbow(uint32_t rainbowArr[NUM_PIXELS][3])
 	for(int i = 0; i < NUM_PIXELS; i++)
 	{
 		setPixelColor(i, rainbowArr[i][0], rainbowArr[i][1], rainbowArr[i][2]);
+	}
+}
+
+void nightRider(uint32_t percent, uint32_t rainbowArr[NUM_PIXELS][3])
+{
+	clear();
+	if (percent > 100) percent = 100;
+	uint32_t numLeds = (percent * (NUM_PIXELS / 2)) / 100;
+
+	for (int ledIndex = 0; ledIndex < numLeds; ledIndex++)
+	{
+		uint32_t i1 = ledIndex+150;
+		uint32_t i2 = 150-ledIndex;
+		setPixelColor(i1, rainbowArr[i1][0], rainbowArr[i1][1], rainbowArr[i1][2]);
+		setPixelColor(i2, rainbowArr[i2][0], rainbowArr[i2][1], rainbowArr[i2][2]);
 	}
 }
 

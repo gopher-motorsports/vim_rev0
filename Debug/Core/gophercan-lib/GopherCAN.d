@@ -1,9 +1,9 @@
 Core/gophercan-lib/GopherCAN.o: \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.c \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h \
+ C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN.c \
+ C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN.h \
  ../Core/Inc/GopherCAN_config.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h ../Core/Inc/main.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/base_types.h \
+ ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -35,8 +35,8 @@ Core/gophercan-lib/GopherCAN.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_buffers.h \
+ C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN_network.h \
+ C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN_buffers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -54,9 +54,9 @@ Core/gophercan-lib/GopherCAN.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h:
+C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN.h:
 ../Core/Inc/GopherCAN_config.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h:
+C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/base_types.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -90,8 +90,8 @@ C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_buffers.h:
+C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN_network.h:
+C:/Users/hp/STM32CubeIDE/workspace_1.11.0/gophercan-lib/GopherCAN_buffers.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:

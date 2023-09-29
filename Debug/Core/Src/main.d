@@ -48,12 +48,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Core/Inc/ledStrip.h ../Core/Inc/main.h \
- ../Core/Inc/GopherCAN_Interface.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h \
- ../Core/Inc/GopherCAN_config.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h \
- C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h
+ ../Core/Inc/ledStrip.h ../Core/Inc/main.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -106,8 +101,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 ../Core/Inc/ledStrip.h:
 ../Core/Inc/main.h:
-../Core/Inc/GopherCAN_Interface.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN.h:
-../Core/Inc/GopherCAN_config.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/base_types.h:
-C:/ST/STM32CubeIDE_1.10.1/gophercan-lib/GopherCAN_network.h:
