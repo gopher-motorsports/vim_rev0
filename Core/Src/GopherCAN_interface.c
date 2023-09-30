@@ -66,27 +66,37 @@ void can_buffer_handling_loop()
 //  called every 10ms
 void main_loop()
 {
+	static uint32_t rpm = 0;
+
 	uint32_t time = HAL_GetTick();
 	if(time - lastUpdate >= 1)
 	{
 
 //		  request_parameter(PRIO_LOW, DLM_ID, rpm_ecu.param_id);
-//		  uint32_t rpm = rpm_ecu.data;
-//
-//		  if(lowMode) {
-//			  uint32_t percent = map(rpm, 0, 9000, 0, 100);
-//			  rpmProgressBar(percent, 0, 255, 0, 255, 0, 0);
-//
-//			  if(rpm > 9000)
-//			  {
-//				  lowMode = false;
-//			  }
+		  uint32_t rpm = engineRPM_rpm.data;
+//		  rpm+= 1000;
+//		  if (rpm > 13000) {
+//			  rpm = 0;
 //		  }
-//		  else
-//		  {
+//		rpm = 10000;
+
+
+		  if(lowMode) {
+			  setStripBrightness(100);
+			  uint32_t percent = map(rpm, 0, 9000, 0, 100);
+			  //rpmProgressBar(percent, 0, 255, 0, 255, 0, 0);
+			  rpmProgressBarRear(percent, 0, 255, 0, 255, 0, 0);
+
+			  if(rpm > 9000)
+			  {
+				  lowMode = false;
+			  }
+		  }
+		  else
+		  {
 
 		// Rainbow
-
+				setStripBrightness(50);
 			  rainbow(i);
 			  write();
 			  i--;
@@ -97,16 +107,16 @@ void main_loop()
 
 		// Chasing
 
-		#define MIN_RPM      10.0f
-		#define MAX_RPM      5000.0f
-		#define MIN_SPEED    1.0f   // Speed is measured in dots moved per second
-		#define MAX_SPEED    230.0f
-		#define SLOPE        ((MAX_SPEED - MIN_SPEED) / (MAX_RPM - MIN_RPM)) // Dots per second to move per rpm (increased from base)
-		#define INTERCEPT    (MIN_SPEED) // We will always move at least this speed
-
-		#define SPACING      13
-
-		static float offset = 0;
+//		#define MIN_RPM      10.0f
+//		#define MAX_RPM      5000.0f
+//		#define MIN_SPEED    1.0f   // Speed is measured in dots moved per second
+//		#define MAX_SPEED    230.0f
+//		#define SLOPE        ((MAX_SPEED - MIN_SPEED) / (MAX_RPM - MIN_RPM)) // Dots per second to move per rpm (increased from base)
+//		#define INTERCEPT    (MIN_SPEED) // We will always move at least this speed
+//
+//		#define SPACING      13
+//
+//		static float offset = 0;
 
 //		if(motorSpeedLF_rpm.data < (uint16_t)MIN_RPM)
 //		{
@@ -149,14 +159,14 @@ void main_loop()
 
 
 
-//			  if(rpm < 8500)
-//			  {
-//				  lowMode = true;
-//			  }
-//		  }
+			  if(rpm < 8500)
+			  {
+				  lowMode = true;
+			  }
+		  }
 
-//		  write();
-//		lastUpdate = time;
+		  write();
+		lastUpdate = time;
 	}
 }
 

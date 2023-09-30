@@ -17,6 +17,7 @@
  * CONFIGURATION OPTIONS
  *================================================================================================*/
 #define NUM_PIXELS 300
+#define NUM_PIXELS_REAR 150
 #define USING_BRIGHTNESS_FUNCTIONALITY true
 
 /*================================================================================================
@@ -179,6 +180,8 @@ void drawColorProgressBar(uint32_t percent, uint8_t redStart, uint8_t greenStart
 											uint8_t redEnd, uint8_t greenEnd, uint8_t blueEnd);
 
 void rpmProgressBar(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint8_t blueStart,
+											uint8_t redEnd, uint8_t greenEnd, uint8_t blueEnd);
+void rpmProgressBarRear(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint8_t blueStart,
 											uint8_t redEnd, uint8_t greenEnd, uint8_t blueEnd);
 
 

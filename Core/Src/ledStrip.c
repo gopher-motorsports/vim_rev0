@@ -13,6 +13,7 @@ extern TIM_HandleTypeDef htim2;
 
 // DMA array
 uint16_t pwmData[ARRAY_SIZE]	= {0};
+uint16_t pwmDataCopy[ARRAY_SIZE]	= {0};
 
 /*	Contains raw color data
  *  [0] = RED
@@ -53,16 +54,18 @@ void write()
 			{
 				// Write 1
 				pwmData[pwmIndex] = ONE_HIGH_TIME;
+				pwmDataCopy[pwmIndex] = ZERO_HIGH_TIME;
 			}
 			else
 			{
 				// Write 0
 				pwmData[pwmIndex] = ZERO_HIGH_TIME;
+				pwmDataCopy[pwmIndex] = ZERO_HIGH_TIME;
 			}
 		}
 	}
 	HAL_TIM_PWM_Start_DMA(&htim3, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
-	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_4, (uint32_t*)pwmData, ARRAY_SIZE);
+	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_4, (uint32_t*)pwmDataCopy, ARRAY_SIZE);
 }
 
 void setPixelColor(uint32_t ledNum, uint8_t red, uint8_t green, uint8_t blue)
@@ -373,6 +376,48 @@ void rpmProgressBar(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint
 			blue  = map(ledIndex, startGradient, endGradient, blueStart, blueEnd);
 		}
 		setPixelColor(NUM_PIXELS - ledIndex, red, green, blue);
+	}
+}
+
+void rpmProgressBarRear(uint32_t percent, uint8_t redStart, uint8_t greenStart, uint8_t blueStart,
+											uint8_t redEnd, uint8_t greenEnd, uint8_t blueEnd)
+{
+	clear();
+	if (percent > 100) percent =100;
+	uint32_t numLeds = (percent * NUM_PIXELS_REAR) / 100;
+	uint32_t startGradient = NUM_PIXELS_REAR / 5;
+	uint32_t endGradient = NUM_PIXELS_REAR - NUM_PIXELS_REAR / 5;
+	for (int ledIndex = 0; ledIndex < numLeds*2; ledIndex++)
+	{
+		uint8_t red = 0;
+		uint8_t green = 0;
+		uint8_t blue = 0;
+		if(ledIndex < startGradient)
+		{
+			red = redStart;
+			green = greenStart;
+			blue = blueStart;
+		}
+		else if(ledIndex > endGradient)
+		{
+			red = redEnd;
+			green = greenEnd;
+			blue = blueEnd;
+		}
+		else
+		{
+//			if(ledIndex < NUM_PIXELS_REAR) {
+				red   = map(ledIndex, startGradient, endGradient, redStart, redEnd);
+				green = map(ledIndex, startGradient, endGradient, greenStart, greenEnd);
+				blue  = map(ledIndex, startGradient, endGradient, blueStart, blueEnd);
+//			} else {
+//				red   = map(NUM_PIXELS_REAR + ledIndex, startGradient, endGradient, redStart, redEnd);
+//				green = map(NUM_PIXELS_REAR + ledIndex, startGradient, endGradient, greenStart, greenEnd);
+//				blue  = map(NUM_PIXELS_REAR + ledIndex, startGradient, endGradient, blueStart, blueEnd);
+//			}
+		}
+		setPixelColor(NUM_PIXELS_REAR - ledIndex, red, green, blue);
+		setPixelColor(NUM_PIXELS_REAR + ledIndex, red, green, blue);
 	}
 }
 
