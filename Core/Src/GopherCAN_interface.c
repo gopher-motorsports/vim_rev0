@@ -107,43 +107,79 @@ void main_loop()
 		#define SPACING      13
 
 		static float offset = 0;
+		uint8_t state = 0;
+		if (swButon0_state.data == 1) state = 1;
+		if (swButon1_state.data == 1) state = 2;
+		if (swButon2_state.data == 1) state = 3;
+		if (swButon3_state.data == 1) state = 4;
+		if (swButon4_state.data == 1) state = 5;
+		if (swButon5_state.data == 1) state = 6;
 
-		if(motorSpeedLF_rpm.data < (uint16_t)MIN_RPM)
-		{
-			float packVoltage = bmsAveBrickVoltage_V.data*84;
-			if(dcBusVoltage_V.data < 0.05f * packVoltage) {
+
+		switch(state) {
+			case 1:
 				  float intensity = abs((HAL_GetTick() % 2000) - 1000) / 1000.0f;
-				  setStripColor(0, (uint8_t)(255.0f * intensity), 0);
-			} else if (dcBusVoltage_V.data > 0.95f * packVoltage) {
-				float intensity = abs((HAL_GetTick() % 300) - 150) / 150.0f;
-				  setStripColor((uint8_t)(255.0f * intensity), 0, 0);
-			} else {
-				float intensity = abs((HAL_GetTick() % 500) - 250) / 250.0f;
 				  setStripColor(0, 0, (uint8_t)(255.0f * intensity));
-			}
-		}
-		else
-		{
-		  static float lastOffset = 0;
-		  float motorSpeed = (float)motorSpeedLF_rpm.data;
-		  if(motorSpeed > MAX_RPM)
-		  {
-			motorSpeed = MAX_RPM;
-		  }
+				  break;
+			case 2:
+				  rainbow(i);
+				  write();
+				  i--;
+				  lastUpdate = time;
+				  if(i < 0 || i > NUM_PIXELS){
+					  i = NUM_PIXELS-1;
+				  }
+				break;
+			case 3:
+				  float percent = abs((HAL_GetTick() % 1000) / 10);
+				  rpmProgressBar(percent, 0, 255, 0, 255, 0, 0);
+				break;
+			case 0:
+			case 4:
+			case 5:
+			case 6:
+			default:
+				if((electricalRPM_erpm.data / 10) < (uint16_t)MIN_RPM)
+				{
+					float packVoltage = bmsAveBrickVoltage_V.data*84;
+					if(inputInverterVoltage_V.data < 0.05f * packVoltage) {
+						  float intensity = abs((HAL_GetTick() % 2000) - 1000) / 1000.0f;
+						  setStripColor(0, (uint8_t)(255.0f * intensity), 0);
+					} else if (inputInverterVoltage_V.data > 0.95f * packVoltage) {
+						float intensity = abs((HAL_GetTick() % 300) - 150) / 150.0f;
+						  setStripColor((uint8_t)(255.0f * intensity), 0, 0);
+					} else {
+						float intensity = abs((HAL_GetTick() % 500) - 250) / 250.0f;
+						  setStripColor(0, 0, (uint8_t)(255.0f * intensity));
+					}
+				}
+				else
+				{
+				  static float lastOffset = 0;
+				  float motorSpeed = (float)(electricalRPM_erpm.data / 10);
+				  if(motorSpeed > MAX_RPM)
+				  {
+					motorSpeed = MAX_RPM;
+				  }
 
-		  // Offset = (base_speed + speed_per_rpm * rpm) * delta_t
-		  offset += (INTERCEPT + SLOPE * motorSpeed) * (float)(HAL_GetTick() - lastUpdate) / 1000.0f;
-		  // If offset has advanced to the next integer value
-		  if((uint32_t)lastOffset != (uint32_t)offset)
-		  {
-			// Update the dotted line
-			dottedLine(SPACING, (uint32_t)offset, 255, 0, 0);
-			write();
-			fmod(offset, SPACING);
-		  }
-		  // Update last offset
-		  lastOffset = offset;
+				  // Offset = (base_speed + speed_per_rpm * rpm) * delta_t
+				  offset += (INTERCEPT + SLOPE * motorSpeed) * (float)(HAL_GetTick() - lastUpdate) / 1000.0f;
+				  // If offset has advanced to the next integer value
+				  if((uint32_t)lastOffset != (uint32_t)offset)
+				  {
+					// Update the dotted line
+					dottedLine(SPACING, (uint32_t)offset, 255, 0, 0);
+					write();
+					fmod(offset, SPACING);
+				  }
+				  // Update last offset
+				  lastOffset = offset;
+				}
+				break;
+
 		}
+
+
 		write();
 
 
